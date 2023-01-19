@@ -1,2 +1,2 @@
 # socks5
-手写socks5服务器
+手写socks5代理
