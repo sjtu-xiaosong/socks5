@@ -3,7 +3,6 @@ package socks5
 import (
 	"errors"
 	"io"
-	"net"
 )
 
 type ClientAuthMessage struct {
@@ -13,7 +12,7 @@ type ClientAuthMessage struct {
 }
 
 // NewClientAuthMessage 读取报文并生成报文结构体
-func NewClientAuthMessage(conn net.Conn) (*ClientAuthMessage, error) {
+func NewClientAuthMessage(conn io.Reader) (*ClientAuthMessage, error) {
 	//读取Version和NMethods
 	buf := make([]byte, 2)
 	_, err := io.ReadFull(conn, buf)
